@@ -15,6 +15,11 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarStyle: {
+          backgroundColor: '#1976d2', // Ocean blue banner color
+        },
+        tabBarActiveTintColor: '#00ffd0', // Aqua for active icons
+        tabBarInactiveTintColor: '#00ffd0', // Aqua for inactive icons
       }}>
       <Tabs.Screen
         name="index"
@@ -26,10 +31,19 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: 'Ads',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />,
+        }}
+      />
+      {/* Removed any language selection tabs from the bottom navigation */}
+      {/* Removed unwanted app-language-select and language-select buttons from bottom navigation */}
     </Tabs>
   );
 }

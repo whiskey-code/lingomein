@@ -9,6 +9,9 @@ dist/
 web-build/
 expo-env.d.ts
 
+# API keys and secrets
+# apiKeys.js
+
 # Native
 .kotlin/
 *.orig.*
