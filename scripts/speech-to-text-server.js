@@ -5,14 +5,20 @@ const ffmpeg = require('fluent-ffmpeg');
 const fs = require('fs');
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors');
 
 const upload = multer({ dest: 'uploads/' });
 const app = express();
+app.use(cors());
 const PORT = 3001;
 
 const GOOGLE_TTS_API_KEY = 'AIzaSyDsYnx1QxnhkuF3-DnDu_fk73sgTYvkea8'; // Use your real key
 
 app.post('/transcribe', upload.single('audio'), async (req, res) => {
+  console.log('Received /transcribe request:', {
+    file: req.file,
+    body: req.body
+  });
   const inputPath = req.file.path;
   const outputPath = inputPath + '.wav';
 
